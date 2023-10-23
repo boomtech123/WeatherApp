@@ -47,8 +47,16 @@ function App() {
     >
       <TopButtons setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
-      
 
+       {weather && (
+        <div>
+          <TimeAndLocation weather={weather} />
+          <TemperatureAndDetails weather={weather} />
+
+          <Forecast title="hourly forecast" items={weather.hourly} />
+          <Forecast title="daily forecast" items={weather.daily} />
+        </div>
+      )}
     
       <ToastContainer autoClose={5000} theme="colored" newestOnTop={true} />
 
